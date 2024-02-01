@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import ProductPage from './Pages/ProductsPage/ProductPage';
-import ProductDetailsPage from './Pages/ProductDetailsPage/ProductDetailsPage';
-import ShoppingCartPage from './Pages/ShoppingCartPage/ShoppingCartPage';
-import LoginPage from './Pages/LoginPage/LoginPage';
-import RegistrationPage from './Pages/RegistrationPage/RegistrationPage';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import ProductPage from "./Pages/ProductsPage/ProductPage";
+import ProductDetailsPage from "./Pages/ProductDetailsPage/ProductDetailsPage";
+import ShoppingCartPage from "./Pages/ShoppingCartPage/ShoppingCartPage";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import RegistrationPage from "./Pages/RegistrationPage/RegistrationPage";
+import { AuthProvider } from "./utils/useAuth";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
