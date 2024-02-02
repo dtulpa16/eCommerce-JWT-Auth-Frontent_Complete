@@ -14,7 +14,7 @@ export default function ProductPage() {
   const [products] = useState(data);
   return (
     <div>
-      <ProductList products={products} />
+      <ProductList products={products} fromCart={false} />
     </div>
   );
 }

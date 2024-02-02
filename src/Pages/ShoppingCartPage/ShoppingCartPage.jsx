@@ -19,7 +19,7 @@ export default function ShoppingCartPage() {
   const [products] = useState(data);
   return (
     <div>
-      <ProductList products={products} />
+      <ProductList products={products} fromCart={true}/>
     </div>
   );
 }
