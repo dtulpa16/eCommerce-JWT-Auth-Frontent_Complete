@@ -7,7 +7,7 @@ import ShoppingCartPage from "./Pages/ShoppingCartPage/ShoppingCartPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegistrationPage from "./Pages/RegistrationPage/RegistrationPage";
 import { AuthProvider } from "./utils/useAuth";
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "",
