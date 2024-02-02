@@ -6,7 +6,7 @@ import ProductList from "../../Components/ProductList";
 
 export async function getCart() {
   let token = localStorage.getItem("token");
-  debugger
+  debugger;
   let response = await axios.get(`/shoppingcarts`, {
     headers: { Authorization: "Bearer " + token },
   });
@@ -19,7 +19,8 @@ export default function ShoppingCartPage() {
   const [products] = useState(data);
   return (
     <div>
-      <ProductList products={products} fromCart={true}/>
+      <h1 style={{"fontSize":"34px", textAlign:"center"}}>My Cart</h1>
+      <ProductList products={products} fromCart={true} />
     </div>
   );
 }
