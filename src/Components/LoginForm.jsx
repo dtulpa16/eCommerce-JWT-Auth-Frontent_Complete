@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../utils/useAuth';
 
 export default function LoginForm() {
   const navigate = useNavigate()
+  const {storeToken} = useAuth()
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,7 +15,7 @@ export default function LoginForm() {
       const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
       const token = response.headers['x-auth-token'];
       if (token) {
-        localStorage.setItem('token', token);
+        storeToken(token)
       }
       navigate("/")
     } catch (error) {

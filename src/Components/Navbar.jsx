@@ -11,14 +11,14 @@ export default function Navbar() {
       <div onClick={() => navigate("/")} className="navbar-brand">
         eCommerce
       </div>
-      {user && <div className="navbar-user">Welcome, {user.name}!</div>}
+      {isAuthenticated && <div className="navbar-user">Welcome, {user.username}!</div>}
       <div className="navbar-links">
         <Link to="/shoppingcart" className="navbar-link">
           My Cart
         </Link>
         {/* If user is logged in, render Logout Button  */}
-        {user ? (
-          <button onClick={() => logout()}>Logout</button>
+        {isAuthenticated ? (
+          <div className="navbar-link" onClick={() => logout()}>Logout</div>
         ) : (
           <>
             <Link to="/login" className="navbar-link">

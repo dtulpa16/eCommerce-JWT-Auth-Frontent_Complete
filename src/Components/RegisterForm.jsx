@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../utils/useAuth';
 
 export default function RegisterForm() {
   const navigate = useNavigate()
+  const {storeToken} = useAuth()
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +16,7 @@ export default function RegisterForm() {
       const response = await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
       const token = response.headers['x-auth-token'];
       if (token) {
-        localStorage.setItem('token', token);
+        storeToken(token)
       }
       navigate("/")
     } catch (error) {
