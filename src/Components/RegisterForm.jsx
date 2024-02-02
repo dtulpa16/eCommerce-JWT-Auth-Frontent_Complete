@@ -13,7 +13,7 @@ export default function RegisterForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
+      const response = await axios.post('/auth/register', { username, email, password });
       const token = response.headers['x-auth-token'];
       if (token) {
         storeToken(token)

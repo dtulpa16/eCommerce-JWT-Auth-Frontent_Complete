@@ -1,13 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import ProductPage from "./Pages/ProductsPage/ProductPage";
+import ProductPage, { getProducts } from "./Pages/ProductsPage/ProductPage";
 import ProductDetailsPage from "./Pages/ProductDetailsPage/ProductDetailsPage";
 import ShoppingCartPage from "./Pages/ShoppingCartPage/ShoppingCartPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegistrationPage from "./Pages/RegistrationPage/RegistrationPage";
 import { AuthProvider } from "./utils/useAuth";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import axios from 'axios';
+axios.defaults.baseURL = "http://localhost:5000/api"
+
 const router = createBrowserRouter([
   {
     path: "",
@@ -16,6 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <ProductPage />,
+        loader:getProducts
       },
       {
         path: "/product/details/:productId",

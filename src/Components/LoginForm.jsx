@@ -12,7 +12,7 @@ export default function LoginForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
+      const response = await axios.post('/auth/login', { username, password });
       const token = response.headers['x-auth-token'];
       if (token) {
         storeToken(token)
