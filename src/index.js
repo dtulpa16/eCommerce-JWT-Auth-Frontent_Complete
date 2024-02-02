@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import ProductPage, { getProducts } from "./Pages/ProductsPage/ProductPage";
-import ProductDetailsPage from "./Pages/ProductDetailsPage/ProductDetailsPage";
+import ProductDetailsPage, { getProductDetails } from "./Pages/ProductDetailsPage/ProductDetailsPage";
 import ShoppingCartPage from "./Pages/ShoppingCartPage/ShoppingCartPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegistrationPage from "./Pages/RegistrationPage/RegistrationPage";
@@ -25,6 +25,7 @@ const router = createBrowserRouter([
       {
         path: "/product/details/:productId",
         element: <ProductDetailsPage />,
+        loader:getProductDetails
       },
       {
         path: "/shoppingcart",
